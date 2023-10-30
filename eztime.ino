@@ -1,10 +1,3 @@
-/*
- *  Simple test to get to get data and time - uses the ezTime library at https://github.com/ropg/ezTime
- *  Duncan Wilson 
- *  CASA0014 - 2 - Plant Monitor Workshop
- *  May 2020
- */
-
 #include <ESP8266WiFi.h>
 #include <ezTime.h>
 
@@ -17,7 +10,7 @@ void setup() {
   Serial.begin(115200);
   delay(100);
 
-  // We start by connecting to a WiFi network
+  // We start by connecting to a WiFi network and same to previous one
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
