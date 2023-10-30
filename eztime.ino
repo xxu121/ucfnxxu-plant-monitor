@@ -1,11 +1,11 @@
 #include <ESP8266WiFi.h>
 #include <ezTime.h>
-
+//ssid & password same to the test wifi one
 const char* ssid     = "ssid here";
 const char* password = "your password here";
 
 Timezone GB;
-
+// time here is in milliseconds
 void setup() {
   Serial.begin(115200);
   delay(100);
@@ -25,7 +25,7 @@ void setup() {
   Serial.println("WiFi connected");  
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
-
+// eztime function called waitForSync which facilitates the establishment of a connection with an NTP server
   waitForSync();
 
   Serial.println("UTC: " + UTC.dateTime());
