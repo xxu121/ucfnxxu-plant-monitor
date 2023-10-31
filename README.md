@@ -20,7 +20,15 @@ After testing, sharing data in a public area through MQTT allow checking data wi
 2. Follow the code [testMQTT.ino](/testMQTT.ino/) and change the personal id will prepare sending message to MQTT.
 3. Publish "student/CASA0014/plant/ucxxxxx/inTopic" in raw and the message will shown. A payload of 1 to publish, causing the built-in LED on the Huzzah to illuminate. Then, change the payload to 0 and publish again to turn the light off.
 4. Soild the resistance to test moisture as High moisture leads lower resistance. Solid the DHT22 sensor to measure the temperature and humidity. Use the code [testMoisture.ino](/testMoisture.ino/). The serial plotter will give data flowing img shows like:<img width="662" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/ce576df6-788b-4667-8c5f-272127ca558a"> (from workshop)
-5. The programe from DHT library takes moisture and temperature/humidity readings and sends them to our MQTT server. Combine previous code, do a complete data setting for connecting all stuff. Furthermore, a red light illuminates to indicate a moisture level of 10 or higher, and a yellow light activates to signal a temperature below 25 degrees. It will test every 3000ms.
+5. The programe from DHT library takes moisture and temperature/humidity readings and sends them to our MQTT server. Combine previous code, do a complete data setting for connecting all stuff. Furthermore, a red light illuminates to indicate a moisture level of 10 or higher, and a yellow light activates to signal a temperature below 25 degrees. It will test every 3000ms as it will be quicker show in crit. Code can be find in [DHT22_MQTT.ino](/DHT22_MQTT.ino/).
 
 ## workshop 3
-
+1. Setting up a RPi as a gateway. Following the tutorial in https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/2, use the institution wifi to connect the RPi and set user's own username and password.
+2. Enter ssh username@stud-pi-casa0014.local in terminal. Here the username must the one setted or it will show permission denied.
+'Use sudo apt update
+sudo apt upgrade -y
+sudo reboot' to do a quick update / upgrade to make sure all files are upto date and then reboot before moving on to installing the datastore.
+4. All the below programming in terminal. Use 'sudo nano /etc/hostname' to update hostname, and repeat for hosts file 'sudo nano /etc/hosts'. In the hosts file it should to be edited the entry against 127.0.0.1 as '127.0.0.1 celab-pi-casa0014'. Use 'sudo reboot' for good measure, here I enter sudo reboot in my terminal and my computer reboot and I tried serveal times, it also command my computer not the RPi. REMEMBER 'sudo reboot' MUST ENTER AFTER SSH IN THE RPi OR IT WILL COMMAND THE COMPUTER DIRECTLY.
+5. Installing InfluxDB on RPi use the code 'wget -q https://repos.influxdata.com/influxdata-archive_compat.key
+echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c && cat influxdata-archive_compat.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg > /dev/null
+echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main' | sudo tee /etc/apt/sources.list.d/influxdata.list' With the repository added now run another update to the package list 'sudo apt-get update'. Finally install InfluxDB 'sudo apt-get install influxdb2 -y'
