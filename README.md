@@ -17,3 +17,6 @@ Familiar with Arduino and test blinking, connect to wifi, and getting current ti
 ## workshop 2
 After testing, sharing data in a public area through MQTT allow checking data with others or read others plant situation.
 1. A library called "arduino_secrets.h" include wifi ssid & password, and MQTT student user details will be remember. "#include "arduino_secrets.h"" allows us to use data in this library.
+2. Follow the code [testMQTT.ino](/testMQTT.ino/) and change the personal id will prepare sending message to MQTT.
+3. Publish "student/CASA0014/plant/ucxxxxx/inTopic" in raw and the message will shown. A payload of 1 to publish, causing the built-in LED on the Huzzah to illuminate. Then, change the payload to 0 and publish again to turn the light off.
+4. Soild the resistance to test moisture as High moisture leads lower resistance. Solid the DHT22 sensor to measure the temperature and humidity. Use the code 
