@@ -1,5 +1,4 @@
 /*
- *  Simple test to read data from an MQTT server - uses library from https://pubsubclient.knolleary.net
  *  Code from Duncan Wilson 
  *  OCT 2023
  *  
@@ -10,14 +9,7 @@
 
 // Wifi and MQTT
 #include "arduino_secrets.h" 
-/*
 
-
-#define SECRET_SSID "ssid name"
-#define SECRET_PASS "ssid password"
-#define SECRET_MQTTUSER "user name - eg student"
-#define SECRET_MQTTPASS "password";
- */
 
 const char* ssid     = SECRET_SSID;
 const char* password = SECRET_PASS;
@@ -35,22 +27,19 @@ void setup() {
   // We setup an LED to be controllable via MQTT
   // Initialize the BUILTIN_LED pin as an output 
   // Turn the LED off by making the voltage HIGH
+  // turn the LED on and off via MQTT and initialise the MQTT client
   pinMode(BUILTIN_LED, OUTPUT);     
   digitalWrite(BUILTIN_LED, HIGH);  
 
-  // open serial connection via the wifi to the mqtt broker
+ 
   Serial.begin(115200);
-  delay(100); // to give time for the serial connection to open
+  delay(100); 
 
-  // Initiate the connecting to wifi routine
   startWifi();
 
-  // Once connected to wifi establish connection to mqtt broker
+  // 1884 for  using a username and password to connect to the broker
   client.setServer(mqtt_server, 1884);
   
-  // The callback in this case listens for instructions to 
-  // change the state of the LED - here we are initialising 
-  // that function
   client.setCallback(callback);
 
 }
@@ -62,9 +51,6 @@ void loop() {
 
 
 // This function is used to set-up the connection to the wifi
-// using the user and passwords defined in the secrets file
-// It then prints the connection status to the serial monitor
-
 void startWifi(){
   // We start by connecting to a WiFi network
   Serial.println();
@@ -83,10 +69,7 @@ void startWifi(){
   Serial.println(WiFi.localIP());
 }
 
-// This function is used to make sure the arduino is connected
-// to an MQTT broker before it tries to send a message and to 
-// keep alive subscriptions on the broker (ie listens for inTopic)
-
+//reconnect function called above is a while loop that repeats until the client is connected
 void reconnect() {
   // Loop until we're reconnected
   while (!client.connected()) {    // while not (!) connected....
@@ -110,17 +93,16 @@ void reconnect() {
   }
 }
 
-// This function sends (publishes) a message to a MQTT topic
-// once a connection is established with the broker. It sends
-// an incrementing variable called value to the topic:
-// "student/CASA0014/plant/ucjtdjw"
 
+// Create a new function called sendMQTT
 void sendMQTT() {
-
+  //if statement checks to see if a connection has already been established to the MQTT server and if not it creates one
   if (!client.connected()) {
     reconnect();
   }
+  //loop functions checks to see if any new messages have been received by the client
   client.loop();
+  //value keep track of how many messages have been sent to the server
   ++value;
   snprintf (msg, 50, "hello world #%ld", value);
   Serial.print("Publish message: ");
@@ -130,9 +112,6 @@ void sendMQTT() {
 }
 
 // The callback function is called when an incoming message is received
-// from the MQTT broker (ie the inTopic message)/ In this demo if the first
-// character of the message has the value "1" we turn an LED on. Any other value 
-// results in the LED being turned off
 
 void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message arrived [");
