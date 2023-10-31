@@ -3,9 +3,9 @@
     and then show data from a DHT22 on a web page served by the Huzzah and
     push data to an MQTT server - uses library from https://pubsubclient.knolleary.net
 
-    code from Duncan Wilson
+    Code from Duncan Wilson
     CASA0014 - 2 - Plant Monitor Workshop
-    Oct 2020
+    Oct 2023
 */
 
 #include <ESP8266WiFi.h>
