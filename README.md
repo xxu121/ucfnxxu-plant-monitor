@@ -29,6 +29,10 @@ After testing, sharing data in a public area through MQTT allow checking data wi
 sudo apt upgrade -y
 sudo reboot' to do a quick update / upgrade to make sure all files are upto date and then reboot before moving on to installing the datastore.
 4. All the below programming in terminal. Use 'sudo nano /etc/hostname' to update hostname, and repeat for hosts file 'sudo nano /etc/hosts'. In the hosts file it should to be edited the entry against 127.0.0.1 as '127.0.0.1 celab-pi-casa0014'. Use 'sudo reboot' for good measure, here I enter sudo reboot in my terminal and my computer reboot and I tried serveal times, it also command my computer not the RPi. REMEMBER 'sudo reboot' MUST ENTER AFTER SSH IN THE RPi OR IT WILL COMMAND THE COMPUTER DIRECTLY.
-5. Installing InfluxDB on RPi use the code 'wget -q https://repos.influxdata.com/influxdata-archive_compat.key
+5. Installing InfluxDB on RPi use the code
+   'wget -q https://repos.influxdata.com/influxdata-archive_compat.key
 echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c && cat influxdata-archive_compat.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg > /dev/null
-echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main' | sudo tee /etc/apt/sources.list.d/influxdata.list' With the repository added now run another update to the package list 'sudo apt-get update'. Finally install InfluxDB 'sudo apt-get install influxdb2 -y'
+
+echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main' | sudo tee /etc/apt/sources.list.d/influxdata.list'
+
+With the repository added now run another update to the package list 'sudo apt-get update'. Finally install InfluxDB 'sudo apt-get install influxdb2 -y'
