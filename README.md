@@ -38,7 +38,28 @@ echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https
 With the repository added now run another update to the package list 'sudo apt-get update'. Finally install InfluxDB 'sudo apt-get install influxdb2 -y'
 
 Then the telegraf can be set and copy the API in case to clone another one.
+
 6. Installing Telegraf on RPi.
 'sudo apt-get update && sudo apt-get install telegraf -y'
 
 'cat /etc/telegraf/telegraf.conf'
+
+First up, define some PATH variables:
+
+'export INFLUX_HOST=http://10.129.101.214:8086' The IP address can be found with the help of command 'ifconfig' 
+
+'export INFLUX_ORG=casa0014'
+
+Following the Load Data -> Telegraf -> 'setup instruction' step by step.
+
+Three personal details, two token and bucket ='telegraf' should be change. Code from [plantMonitor/pi config/etc/telegraf/telegrafv2.conf](/telegraf). The mqtt-data can be visualise in influxdb.<img width="1188" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/1a0f1b56-596b-4f5f-87d0-57ff9c894bec">
+
+7. Follow the instructions of Workshop step14. It now be able to browse to http://localhost:3000 and see the Grafana welcome page. The localhost should be changed into 'username@stud-pi-casa0014' used previously in RPi setting.
+8. Visualising Data on Grafana. Add first datasource show as the figure below with all detail same. <img width="686" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/bfdf9325-3924-465d-b0ce-5f8f78320209">
+
+9. Create a new dashboard, enter queries just like those used in the Dashboard for InfluxDB. <img width="1227" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/5302bac7-c98d-4da6-b259-e6d4a6fcad37"> Actural it, it would provide the graph of moisture, humidity, and temperature. Apply it, it will produce <img width="837" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/609c463f-203d-44a0-94de-8796505ea051">
+
+
+
+
+
