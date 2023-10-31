@@ -59,6 +59,8 @@ Three personal details, two token and bucket ='telegraf' should be change. Code 
 
 9. Create a new dashboard, enter queries just like those used in the Dashboard for InfluxDB. <img width="1227" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/5302bac7-c98d-4da6-b259-e6d4a6fcad37"> Actural it, it would provide the graph of moisture, humidity, and temperature. Apply it, it will produce <img width="837" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/609c463f-203d-44a0-94de-8796505ea051">
 
+## Added function and Future prospects
+A red and yellow LED used to test the moisture and temperature if they are not at a specific range. Only two LEDs due to not enough pin to add extra functions. If there's enough time I will link it to arduino to have two more buzzers to play different music, it will remind me if the temperature or moisture is not suitable for my plant.
 
 
 
