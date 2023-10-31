@@ -88,8 +88,15 @@ void setup() {
 void loop() {
   // handler for receiving requests to webserver
   server.handleClient();
+if(Temperature <= 25){
+     digitalWrite(16, HIGH);   // turn the LED on (HIGH is the voltage level)
+  }
+  else{
+      digitalWrite(16, LOW);    // turn the LED off by making the voltage LOW
+  }
 
-  if (minuteChanged()) {
+delay(3000);
+  //if (minuteChanged()) {
     readMoisture();
     sendMQTT();
     Serial.println(GB.dateTime("H:i:s")); // UTC.dateTime("l, d-M-y H:i:s.v T")
@@ -112,6 +119,15 @@ void readMoisture(){
   delay(100);
   Serial.print("Wet ");
   Serial.println(Moisture);   // read the value from the nails
+
+    if(Moisture >= 10){
+     digitalWrite(14, HIGH);   // turn the LED on (HIGH is the voltage level)
+  }
+  else{
+      digitalWrite(14, LOW);    // turn the LED off by making the voltage LOW
+  }
+  
+}
 }
 
 void startWifi() {
