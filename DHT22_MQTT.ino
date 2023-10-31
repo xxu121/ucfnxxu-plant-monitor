@@ -8,6 +8,7 @@
     Oct 2023
 */
 
+//include the libraries needed for the sketch and define the sensor variables
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <ezTime.h>
@@ -15,7 +16,8 @@
 #include <DHT.h>
 #include <DHT_U.h>
 
-#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
+//  DHT 22  (AM2302), AM2321
+#define DHTTYPE DHT22 
 
 // Sensors - DHT22 and Nails
 uint8_t DHTPin = 12;        // on Pin 2 of the Huzzah
@@ -29,16 +31,9 @@ DHT dht(DHTPin, DHTTYPE);   // Initialize DHT sensor.
 
 
 // Wifi and MQTT
+// Declare variables for setting up Wifi and MQTT connections
 #include "arduino_secrets.h" 
-/*
-**** please enter your sensitive data in the Secret tab/arduino_secrets.h
-**** using format below
 
-#define SECRET_SSID "ssid name"
-#define SECRET_PASS "ssid password"
-#define SECRET_MQTTUSER "user name - eg student"
-#define SECRET_MQTTPASS "password";
- */
 
 const char* ssid     = SECRET_SSID;
 const char* password = SECRET_PASS;
@@ -56,8 +51,7 @@ int value = 0;
 // Date and time
 Timezone GB;
 
-
-
+// Setup LEDs, open a Serial connection for debugging, setup the pin for the DHT sensor, start the wifi and set up the MQTT server.
 void setup() {
   // Set up LED to be controllable via broker
   // Initialize the BUILTIN_LED pin as an output
@@ -107,6 +101,7 @@ void loop() {
 void readMoisture(){
   
   // power the sensor
+  // it appears that the "Moisture" variable is being set to a value between 0 and 100 based on the analog sensor's readings, making it easier to work with or display the moisture level in a more understandable format
   digitalWrite(sensorVCC, HIGH);
   digitalWrite(blueLED, LOW);
   delay(100);
