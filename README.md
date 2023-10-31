@@ -36,3 +36,9 @@ echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdat
 echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main' | sudo tee /etc/apt/sources.list.d/influxdata.list'
 
 With the repository added now run another update to the package list 'sudo apt-get update'. Finally install InfluxDB 'sudo apt-get install influxdb2 -y'
+
+Then the telegraf can be set and copy the API in case to clone another one.
+6. Installing Telegraf on RPi.
+'sudo apt-get update && sudo apt-get install telegraf -y'
+
+'cat /etc/telegraf/telegraf.conf'
