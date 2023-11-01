@@ -63,6 +63,7 @@ First up, define some PATH variables:
 Following the Load Data -> Telegraf -> 'setup instruction' step by step.
 
 Three personal details, two token and bucket ='telegraf' should be change. Code from [plantMonitor/pi config/etc/telegraf/telegrafv2.conf](/telegraf). The mqtt-data can be visualise in influxdb.<img width="1188" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/1a0f1b56-596b-4f5f-87d0-57ff9c894bec">
+<img width="1580" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/ec75f216-d1df-40d4-8932-b6559000a943">
 
 7. Follow the instructions of Workshop step14. It now be able to browse to http://localhost:3000 and see the Grafana welcome page. The localhost should be changed into 'username@stud-pi-casa0014' used previously in RPi setting.
 8. Visualising Data on Grafana. Add first datasource show as the figure below with all detail same. <img width="686" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/bfdf9325-3924-465d-b0ce-5f8f78320209">
