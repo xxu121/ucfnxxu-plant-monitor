@@ -120,7 +120,7 @@ void readMoisture(){
   Serial.print("Wet ");
   Serial.println(Moisture);   // read the value from the nails
 
-    if(Moisture >= 10){
+    if(Moisture <= 10){
      digitalWrite(14, HIGH);   // turn the LED on (HIGH is the voltage level)
   }
   else{
