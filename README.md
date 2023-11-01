@@ -20,7 +20,13 @@ After testing, sharing data in a public area through MQTT allow checking data wi
 2. Follow the code [testMQTT.ino](/testMQTT.ino/) and change the personal id will prepare sending message to MQTT.
 3. Publish "student/CASA0014/plant/ucxxxxx/inTopic" in raw and the message will shown. A payload of 1 to publish, causing the built-in LED on the Huzzah to illuminate. Then, change the payload to 0 and publish again to turn the light off.
 4. Soldering the resistance to test moisture as High moisture leads lower resistance. Solid the DHT22 sensor to measure the temperature and humidity. Use the code [testMoisture.ino](/testMoisture.ino/). The serial plotter will give data flowing img shows like:<img width="662" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/ce576df6-788b-4667-8c5f-272127ca558a"> (from workshop)
-5. The programe from DHT library takes moisture and temperature/humidity readings and sends them to our MQTT server. Combine previous code, do a complete data setting for connecting all stuff. Furthermore, a red light illuminates to indicate a moisture level of 10 or higher, and a yellow light activates to signal a temperature below 25 degrees. It will test every 3000ms as it will be quicker show in crit. Code can be find in [DHT22_MQTT.ino](/DHT22_MQTT.ino/).
+5. The programe from DHT library takes moisture and temperature/humidity readings and sends them to our MQTT server. Combine previous code, do a complete data setting for connecting all stuff. Furthermore, a red light illuminates to indicate a moisture level of 10 or higher, and a yellow light activates to signal a temperature below 25 degrees. It will test every 3000ms as it will be quicker show in crit.
+![image](https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/dc573ad0-83c7-46e7-8ecb-010dc9063bee)
+![image](https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/6bd1a01a-a30e-4e93-9037-d0c9c69938c9)
+Code can be find in [DHT22_MQTT.ino](/DHT22_MQTT.ino/). Also the graph shown in MQTT.
+
+<img width="600" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/95c87d91-dc7e-46cb-95b1-5658a0557b14">
+
 
 ## workshop 3
 1. Setting up a RPi as a gateway. Following the tutorial in https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/2, use the institution wifi to connect the RPi and set user's own username and password.
