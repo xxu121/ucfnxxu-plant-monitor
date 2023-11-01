@@ -68,7 +68,8 @@ Three personal details, two token and bucket ='telegraf' should be change. Code 
 7. Follow the instructions of Workshop step14. It now be able to browse to http://localhost:3000 and see the Grafana welcome page. The localhost should be changed into 'username@stud-pi-casa0014' used previously in RPi setting.
 8. Visualising Data on Grafana. Add first datasource show as the figure below with all detail same. <img width="686" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/bfdf9325-3924-465d-b0ce-5f8f78320209">
 
-9. Create a new dashboard, enter queries just like those used in the Dashboard for InfluxDB. <img width="1227" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/5302bac7-c98d-4da6-b259-e6d4a6fcad37"> Actural it, it would provide the graph of moisture, humidity, and temperature. Apply it, it will produce <img width="837" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/609c463f-203d-44a0-94de-8796505ea051">
+9. Create a new dashboard, enter queries just like those used in the Dashboard for InfluxDB. <img width="1227" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/5302bac7-c98d-4da6-b259-e6d4a6fcad37"> Actural it, it would provide the graph of moisture, humidity, and temperature. Apply it, it will produce <img width="823" alt="image" src="https://github.com/xxu121/ucfnxxu-plant-monitor/assets/146341729/f4ee9779-3c5f-4956-8de3-d92826357a2b">
+
 
 ## Added function and Future prospects
 A red and yellow LED used to test the moisture and temperature if they are not at a specific range. Only two LEDs due to not enough pin to add extra functions. If there's enough time I will link it to arduino to have two more buzzers to play different music, it will remind me if the temperature or moisture is not suitable for my plant.
