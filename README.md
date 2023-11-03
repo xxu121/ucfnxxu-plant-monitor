@@ -35,6 +35,7 @@ Solder the longer foot of the red LED to pin 14 and the longer lead of the yello
 
 ‘pinMode(14, OUTPUT);
 pinMode(16, OUTPUT);’
+
 The code added in void setup. The effect of these two lines is to configure pin 14 and pin 16 on the microcontroller as digital outputs. After executing these lines, it would be able to turn an LED on or off connected to these pins. 
 
 'if(Temperature <= 25){
@@ -43,6 +44,7 @@ The code added in void setup. The effect of these two lines is to configure pin 
   else{
       digitalWrite(16, LOW);    // turn the LED off by making the voltage LOW
   }'
+ 
   Incorporated within the void loop() function, these extract of code produce the following behavior: if the temperature is 25 degrees or below, a HIGH digital signal is sent to the output (pin 16), causing the LED to illuminate. Conversely, if the temperature exceeds 25 degrees, a LOW digital signal is issued to the output (pin 16), turning the LED off.
 
   'if(Moisture < 10){
@@ -53,6 +55,7 @@ The code added in void setup. The effect of these two lines is to configure pin 
   }
   
 }'
+
 Within the void readMoisture() function, these lines of code function analogously to the temperature control mechanism. They utilise a HIGH or LOW output to toggle the LED's state. Specifically, if moisture levels are detected to be below 10, the LED is turned on. If the moisture level is above this threshold, the LED is turned off.
 
 ## workshop 3
